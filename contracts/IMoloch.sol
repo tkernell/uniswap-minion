@@ -12,4 +12,10 @@ interface IMoloch {
       address paymentToken,
       string memory details
   ) external returns (uint256 proposalId);
+
+  // Returns [sponsored, processed, didPass, cancelled, whitelist, guildkick]
+  function getProposalFlags(uint256 proposalId) external view returns (bool[6] memory);
+
+  function getUserTokenBalance(address user, address token) external view returns (uint256);
+  function withdrawBalance(address token, uint256 amount) external;
 }
